@@ -46,9 +46,9 @@
   },
   computeFrame: function() {
     this.ctx1.drawImage(this.video, 0, 0, this.width, this.height);
-    let frame = this.ctx1.getImageData(0, 0, this.width, this.height);
+    var frame = this.ctx1.getImageData(0, 0, this.width, this.height);
     let l = frame.data.length / 4;
-
+    imageData = frame;
     for (let i = 0; i < l; i++) {
       let r = frame.data[i * 4 + 0];
       let g = frame.data[i * 4 + 1];
@@ -63,6 +63,115 @@
 setTimeout(function(){
 processor.doLoad()},20);
     </script>
+          <script>
+                  var img,w,h,can,ctx,can2,ct,x,y,thr,imageData;
+function start(){
+  can2 = null;
+  img = document.getElementsByTagName("img")[0];
+//img.width = img.width>500?500:img.width;
+//img.height = img.height>500?500:img.height;
+w = img.width;
+h = img.height;
+  document.getElementById("er").innerHTML="";
+document.getElementById("test").innerHTML="";
+can = document.createElement("canvas");
+can.setAttribute("width",w);
+can.setAttribute("height",h);
+//document.body.appendChild(document.createElement("br"));
+document.getElementById("er").appendChild(can);
+ctx = document.getElementsByTagName("canvas")[0].getContext("2d");
+ctx.fillStyle="black";
+ctx.fillRect(0,0,w,h);
+can2 = document.createElement("canvas");
+can2.setAttribute("width",w);
+can2.setAttribute("height",h);
+document.getElementById("test").appendChild(can2);
+ct = can2.getContext("2d");
+ct.putImageData(imageData,0,0);
+x = 0;
+y = 1;
+thr =100;
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  loop();
+  
+}
+function dif(n,m){
+  var num1 = Math.sqrt(n*n);
+  var num2 = Math.sqrt(m*m);
+  var num3 = num1-num2;
+  return Math.sqrt(num3*num3);
+}
+function loop(){
+  thr = Number(document.getElementById("thr").value);
+  if(y<=h)window.requestAnimationFrame(loop);
+  for(var i = 0;i<50;i++){
+  x++;
+  var data = ct.getImageData(x,y,3,3).data;
+  var spot1 = data[0]+data[1]+data[2];
+  var spot2 = data[4]+data[5]+data[6];
+  var spot3 = data[8]+data[9]+data[10];
+  var spot4 = data[12]+data[13]+data[14];
+  var spot5 = data[16]+data[17]+data[18];
+  var spot6 = data[20]+data[21]+data[22];
+  var spot7 = data[24]+data[25]+data[26];
+  var spot8 = data[28]+data[29]+data[30];
+  var spot9 = data[32]+data[33]+data[34];
+  var side1 = (spot1+spot2+spot3)/3
+  var side2 = (spot1+spot4+spot7)/3
+  var side3 = (spot7+spot8+spot9)/3
+  var side4 = (spot3+spot6+spot9)/3
+  var d1 = dif(spot5,side1);
+  var d2 = dif(spot5,side2);
+  var d3 = dif(spot5,side3);
+  var d4 = dif(spot5,side4);
+  document.getElementById("debug").innerHTML = Math.round((y*w+x)/(w*h)*100)+"%";
+  //document.getElementById("debug").innerHTML = spot1+"|"+spot2+"|"+spot3+"|"+spot4+"|"+spot5+"|"+spot6+"|"+spot7+"|"+spot8+"|"+spot9;
+  //document.getElementById("debug").innerHTML = "";
+  //for(var i = 0;i<36;i++){
+      //document.getElementById("debug").innerHTML +=data[i]+"|";
+  //}
+  if(d1 > thr || d2 > thr || d3 > thr || d4 > thr){
+    ctx.fillStyle="black";
+    ctx.strokeStyle="black";
+  }else{
+    ctx.fillStyle="white";
+    ctx.strokeStyle="white";
+  }
+  ctx.fillRect(x,y,1,1);
+  if(x>=w){
+    x=0;
+    y++;
+  }
+  }
+}
+          </script>
   </head>
 
   <body>
