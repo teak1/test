@@ -35,37 +35,38 @@ canvas{
                 reader.readAsDataURL(input.files[0]);
             }
         }
-var imgdata = decodeURI(window.location.search).replace(/\?/,"");
-  if(imgdata.length>1)document.getElementsByTagName("img")[0].src=imgdata;
-var img = document.getElementsByTagName("img")[0];
+var img,w,h,can,ctx,can2,ct,x,y,thr;
+function start(){
+  img = document.getElementsByTagName("img")[0];
 //img.width = img.width>500?500:img.width;
 //img.height = img.height>500?500:img.height;
-var w = img.width;
-var h = img.height;
-var can = document.createElement("canvas");
+w = img.width;
+h = img.height;
+can = document.createElement("canvas");
 can.setAttribute("width",w);
 can.setAttribute("height",h);
 //document.body.appendChild(document.createElement("br"));
 document.body.appendChild(can);
-var ctx = document.getElementsByTagName("canvas")[0].getContext("2d");
+ctx = document.getElementsByTagName("canvas")[0].getContext("2d");
 ctx.fillStyle="black";
 ctx.fillRect(0,0,w,h);
-var can2 = document.createElement("canvas");
+can2 = document.createElement("canvas");
 can2.setAttribute("width",w);
 can2.setAttribute("height",h);
 document.getElementById("test").appendChild(can2);
-var ct = can2.getContext("2d");
+ct = can2.getContext("2d");
 ct.drawImage(img,0,0);
-
+x = 0;
+y = 1;
+thr =100;
+  loop();
+}
 function dif(n,m){
   var num1 = Math.sqrt(n*n);
   var num2 = Math.sqrt(m*m);
   var num3 = num1-num2;
   return Math.sqrt(num3*num3);
 }
-var x = 0;
-var y = 1;
-var thr =100;
 function loop(){
   thr = Number(document.getElementById("thr").value);
   if(y<=h)window.requestAnimationFrame(loop);
