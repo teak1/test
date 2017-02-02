@@ -1,26 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <style>
-      body {
-        background: black;
-        color:#CCCCCC; 
-      }
-      #c2 {
-        background-image: url(foo.png);
-        background-repeat: no-repeat;
-      }
-      div {
-        float: left;
-        border :1px solid #444444;
-        padding:10px;
-        margin: 10px;
-        background:#3B3B3B;
-      }
-    </style>
-    <script>
-    var processor = {
+var processor = {
   doLoad: function() {
     this.video = document.getElementById('video');
     this.c1 = document.getElementById('c1');
@@ -60,18 +38,3 @@
     return;
   }
 }
-setTimeout(function(){
-processor.doLoad()},20);
-    </script>
-  </head>
-
-  <body>
-    <div>
-      <video id="video" src="video.mp4" controls="true" autoplay hidden/>
-    </div>
-    <div>
-      <canvas id="c1" width="160" height="96"/>
-      <canvas id="c2" width="160" height="96"/>
-    </div>
-  </body>
-</html>
