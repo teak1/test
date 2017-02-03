@@ -19,7 +19,7 @@ canvas{
 </head>
 <body>
   <div id=test hidden></div>
-  <input type=number id=thr value=100 /><button onClick="start();">start</button><input type="file" name="filename" accept="image/jpeg, image/png" onchange="readURL(this);"><span id=debug></span><br/>
+  <input type=number id=thr value=100 />inverse:<input type="radio" id="inverse" /><button onClick="start();">start</button><input type="file" name="filename" accept="image/jpeg, image/png" onchange="readURL(this);"><span id=debug></span><br/>
   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAABNCAMAAABAMbBwAAAAw1BMVEUQLoL///+/LDT20EcAJH57fqkALoX30kfGLC3DLDC+JjTBLDJbLW8ALoP510gALoe8GzPCOjW+IyzgmD/zyEa6ABLQazo3LnrFRDa7Dhz46+y6AAvKWDjIUzfszc69HSfHUlbluLnfpaf2zjvvvkXhrLH79fXMXzn//ezWiYz6563Ob3PrtUPJW1/31WPx29zFR03VfDzTdDpoLWmgLExJLna2LDsoLn6MLViqLER5LWLRaGndkD6VLVN8Z5PHJiX43YWDLfChAAACCUlEQVRoge3Y2VLCMBQG4NhqujcBioCKiAqI4Moibuj7P5VtwZouKdZJe2ac/Jdc5JuTpSQHIRkZGRmZAnEcp1oPE4KeWq0nhxBcCY0xslfPlh7Gel7ZwS8lk2g213XDUraxDN2Y26WyGL8oegRGsL58IWWxDpllkBvWskkpi4vRPJvcsHNUQrF4oRg8MoihtISrZMYv87tYW7Dqm/lkEN0mIk1sf+w2A1VgrXiRu5w/M2y0xO1hZ7ljPSN1WXCC9/l5TxdqBkmrxipnmHTQATfr5IKalNZGh4ejGqVJtbfmj5MO2uPmtR4fmNbePM31o3lvSoKtT/jjpMNHTzvxMpWG66rbuG4jMcvHd0LQSaxQ2vUiMmS9NqtazVcR6NFxrM4TV1Nj0bRupPY6Z/0CJh8977FmW0uYvqrWQtXq1MdF5jYPvWfPKL1Mmb46pYrVa973h8VIPjpssuaDmzb9dX3sKEWLzEVje5d6GYX6pV4OCheZiw6YJTVHmYWq6sXVn0wuOmZQ2uCh12JR9pTSaebs+uinWPSGQc2svRvmVjDKnBjT45iaaBSiUpA1Bdm9IOcU5IsE8u0F+ZeB+T8FuTmA3JFgboNl3ntBbvggbxmQV1tOQN6nIC9xmJ4DTHcFpo/0i45ZKX26/N5gaY1fgC5oyFbf7w3Z6jvbYarv4f/Q1XIyMjIy/zFfLHlJQQeEcPAAAAAASUVORK5CYII=" id="blah"></img>
   <div id=er></div>
   <script id="jsbin-javascript">
@@ -32,8 +32,9 @@ canvas{
                 reader.readAsDataURL(input.files[0]);
             }
         }
-var img,w,h,can,ctx,can2,ct,x,y,thr;
+var img,w,h,can,ctx,can2,ct,x,y,thr,inv;
 function start(){
+  inv=document.getElementById("inverse").value==="on"?true:false;
   can2 = null;
   img = document.getElementsByTagName("img")[0];
 //img.width = img.width>500?500:img.width;
@@ -127,10 +128,14 @@ function loop(){
   //}
   if(d1 > thr || d2 > thr || d3 > thr || d4 > thr){
     ctx.fillStyle="black";
-    ctx.strokeStyle="black";
+    ctx.fillStyle="black";
+    if(inv)ctx.fillStyle="white";
+    if(inv)ctx.strokeStyle="white";
   }else{
-    ctx.fillStyle="white";
     ctx.strokeStyle="white";
+    ctx.strokeStyle="white";
+    if(inv)ctx.fillStyle="black";
+    if(inv)ctx.strokeStyle="black";
   }
   ctx.fillRect(x,y,1,1);
   if(x>=w){
