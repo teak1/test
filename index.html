@@ -36,7 +36,6 @@ canvas{
 var img,w,h,can,ctx,can2,ct,x,y,thr,inv;
 function start(){
   inv=document.getElementById("inverse").value;
-  alert(inv);
   can2 = null;
   img = document.getElementsByTagName("img")[0];
 //img.width = img.width>500?500:img.width;
@@ -130,12 +129,12 @@ function loop(){
   //}
   if(d1 > thr || d2 > thr || d3 > thr || d4 > thr){
     if(inv==="off")ctx.fillStyle="black";
-    if(inv==="off")ctx.fillStyle="black";
+    if(inv==="off")ctx.strokeStyle="black";
     if(inv==="on")ctx.fillStyle="white";
     if(inv==="on")ctx.strokeStyle="white";
   }else{
     if(inv==="off")ctx.strokeStyle="white";
-    if(inv==="off")ctx.strokeStyle="white";
+    if(inv==="off")ctx.fillStyle="white";
     if(inv==="on")ctx.fillStyle="black";
     if(inv==="on")ctx.strokeStyle="black";
   }
