@@ -34,7 +34,7 @@ canvas{
         }
 var img,w,h,can,ctx,can2,ct,x,y,thr,inv;
 function start(){
-  inv=document.getElementById("inverse").value==="on"?true:false;
+  inv=document.getElementById("inverse").value;
   can2 = null;
   img = document.getElementsByTagName("img")[0];
 //img.width = img.width>500?500:img.width;
@@ -129,13 +129,13 @@ function loop(){
   if(d1 > thr || d2 > thr || d3 > thr || d4 > thr){
     ctx.fillStyle="black";
     ctx.fillStyle="black";
-    if(inv)ctx.fillStyle="white";
-    if(inv)ctx.strokeStyle="white";
+    if(inv==="on")ctx.fillStyle="white";
+    if(inv==="on")ctx.strokeStyle="white";
   }else{
     ctx.strokeStyle="white";
     ctx.strokeStyle="white";
-    if(inv)ctx.fillStyle="black";
-    if(inv)ctx.strokeStyle="black";
+    if(inv==="on")ctx.fillStyle="black";
+    if(inv==="on")ctx.strokeStyle="black";
   }
   ctx.fillRect(x,y,1,1);
   if(x>=w){
