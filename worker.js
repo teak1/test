@@ -1,3 +1,4 @@
 onmessage = function(oEvent){
-  postMessage(oEvent);
+  console.log("recieved:"+oEvent);
+  sendData(oEvent);
 }
