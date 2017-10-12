@@ -121,7 +121,7 @@ function loop(){
   var d2 = dif(spot5,side2);
   var d3 = dif(spot5,side3);
   var d4 = dif(spot5,side4);
-  document.getElementById("debug").innerHTML = Math.round((y*w+x)/(w*h)*100)+"%";
+  //document.getElementById("debug").innerHTML = Math.round((y*w+x)/(w*h)*100)+"%";
   //document.getElementById("debug").innerHTML = spot1+"|"+spot2+"|"+spot3+"|"+spot4+"|"+spot5+"|"+spot6+"|"+spot7+"|"+spot8+"|"+spot9;
   //document.getElementById("debug").innerHTML = "";
   //for(var i = 0;i<36;i++){
@@ -148,9 +148,10 @@ function loop(){
     x=0;
     y++;
   }
-    document.getElementById("debug").innerText=mode+";"+x+","+y;
+    document.getElementById("debug").innerHTML=mode+";"+x+","+y;
   }
 }
 </script>
+  <hr/>v1
 </body>
 </html>
