@@ -99,6 +99,7 @@ function dif(n,m){
   return Math.sqrt(num3*num3);
 }
 function loop(){
+  try{
   thr = Number(document.getElementById("thr").value);
   if(y<=h)window.requestAnimationFrame(loop);
   for(var i = 0;i<50;i++){
@@ -150,6 +151,7 @@ function loop(){
   }
     document.getElementById("debug").innerHTML=mode+";"+x+","+y;
   }
+  }catch(e){document.getElementById("debug").innerHTML=e;}
 }
 </script>
   <hr/>v1
