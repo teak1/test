@@ -128,13 +128,14 @@ function loop(){
   //for(var i = 0;i<36;i++){
       //document.getElementById("debug").innerHTML +=data[i]+"|";
   //}
-  if(d1 > thr || d2 > thr || d3 > thr || d4 > thr){
+    var mode = Number(document.getElementById("ModeSel").value);
+    
+  if((d1 > thr || d2 > thr || d3 > thr || d4 > thr)&&mode!=4){
     if(inv==="off")ctx.fillStyle="black";
     if(inv==="off")ctx.strokeStyle="black";
     if(inv==="on")ctx.fillStyle="white";
     if(inv==="on")ctx.strokeStyle="white";
   }else{
-    var mode = Number(document.getElementById("ModeSel").value);
     if(inv==="off"&&mode===1)ctx.strokeStyle="white";
     if(inv==="off"&&mode===1)ctx.fillStyle="white";
     if(inv==="on"&&mode===1)ctx.fillStyle="black";
@@ -163,6 +164,6 @@ function loop(){
   }catch(e){document.getElementById("debug").innerHTML=e;}
 }
 </script>
-  <hr/>v6
+  <hr/>v7
 </body>
 </html>
