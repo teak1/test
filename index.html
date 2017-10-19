@@ -145,6 +145,12 @@ function loop(){
     }else if(mode===3){
       ctx.fillStyle="rgb("+spot5+","+spot5+","+spot5+")";
       ctx.strokeStyle="rgb("+spot5+","+spot5+","+spot5+")";
+    }else if(mode===4){
+      var r = Math.floor(data[16]/thr)*thr;
+      var g = Math.floor(data[17]/thr)*thr;
+      var b = Math.floor(data[18]/thr)*thr;
+      ctx.fillStyle="rgb("+r+","+g+","+b+")";
+      ctx.strokeStyle="rgb("+r+","+g+","+b+")";
     }
   }
   ctx.fillRect(x,y,1,1);
@@ -157,6 +163,6 @@ function loop(){
   }catch(e){document.getElementById("debug").innerHTML=e;}
 }
 </script>
-  <hr/>v4
+  <hr/>v5
 </body>
 </html>
