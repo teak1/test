@@ -153,7 +153,7 @@ function loop(){
       ctx.fillStyle="rgb("+r+","+g+","+b+")";
       ctx.strokeStyle="rgb("+r+","+g+","+b+")";
     }else if(mode === 5){
-      if(spot5/3 != 255){
+      if(spot5/3 <Number(thr.value)){
         ctx.fillStyle="rgb(255,255,255)";
         ctx.strokeStyle="rgb(255,255,255)";  
       }
@@ -169,6 +169,6 @@ function loop(){
   }catch(e){document.getElementById("debug").innerHTML=e;}
 }
 </script>
-  <hr/>v8
+  <hr/>v9
 </body>
 </html>
