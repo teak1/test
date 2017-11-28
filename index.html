@@ -153,9 +153,12 @@ function loop(){
       ctx.fillStyle="rgb("+r+","+g+","+b+")";
       ctx.strokeStyle="rgb("+r+","+g+","+b+")";
     }else if(mode === 5){
-      if(spot5/3 <Number(thr.value)){
-        ctx.fillStyle="rgb(255,255,255)";
-        ctx.strokeStyle="rgb(255,255,255)";  
+      if(spot5/3 < Number(thr)){
+        ctx.fillStyle="rgb(0,0,0)";
+        ctx.strokeStyle="rgb(0,0,0)";  
+      }else{
+        ctx.fillStyle="rgb("+data[16]+","+data[17]+","+data[18]+")";
+        ctx.strokeStyle="rgb("+data[16]+","+data[17]+","+data[18]+")";
       }
     }
   }
@@ -169,6 +172,6 @@ function loop(){
   }catch(e){document.getElementById("debug").innerHTML=e;}
 }
 </script>
-  <hr/>v9
+  <hr/>v10
 </body>
 </html>
