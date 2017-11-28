@@ -147,9 +147,9 @@ function loop(){
       ctx.fillStyle="rgb("+spot5+","+spot5+","+spot5+")";
       ctx.strokeStyle="rgb("+spot5+","+spot5+","+spot5+")";
     }else if(mode===4){
-      var r = Math.floor(data[16]/thr)*thr;
-      var g = Math.floor(data[17]/thr)*thr;
-      var b = Math.floor(data[18]/thr)*thr;
+      var r = Math.round(data[16]/thr)*thr;
+      var g = Math.round(data[17]/thr)*thr;
+      var b = Math.round(data[18]/thr)*thr;
       ctx.fillStyle="rgb("+r+","+g+","+b+")";
       ctx.strokeStyle="rgb("+r+","+g+","+b+")";
     }else if(mode === 5){
@@ -172,6 +172,6 @@ function loop(){
   }catch(e){document.getElementById("debug").innerHTML=e;}
 }
 </script>
-  <hr/>v10
+  <hr/>v11
 </body>
 </html>
