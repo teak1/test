@@ -161,7 +161,7 @@ function loop(){
         ctx.strokeStyle="rgb("+data[16]+","+data[17]+","+data[18]+")";
       }
     }else if(mode === 6){
-      ctx.strokeStyle=`rgb(${data[16]},${data[17]},${data[18]})`;
+      ctx.strokeStyle=`rgb(${255-data[16]},${255-data[17]},${255-data[18]})`;
       ctx.fillStyle=ctx.strokeStyle;
     }
   }
