@@ -171,8 +171,8 @@ function loop(){
       var a = Math.round((data[16]+data[17]+data[18])/(3*255))*255;
       ctx.strokeStyle=`rgb(${a},${a},${a})`;
       ctx.fillStyle=ctx.strokeStyle;
-      out.innerHTML+=Math.round(a/255);
-      if(can.width%x===0)out.innerHTML+="<br/>";
+      out.value+=Math.round(a/255);
+      if(x%can.width===0)out.value+="\n";
     }
   }
   ctx.fillRect(x,y,1,1);
@@ -187,6 +187,6 @@ function loop(){
 </script>
   <hr/>v15
   <hr/>
-  <div id=out></div>
+  <textarea id=out></textarea>
 </body>
 </html>
